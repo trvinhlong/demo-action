@@ -38,7 +38,7 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H $DEPLOY_HOST >> ~/.ssh/known_hosts
           echo $SSH_KEY > ~/.ssh/id_rsa
-          echo $DEPLOY_HOST
+          echo 12345
           chmod 600 ~/.ssh/id_rsa
           
           
