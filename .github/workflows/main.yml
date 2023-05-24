@@ -38,6 +38,7 @@ jobs:
           mkdir -p ~/.ssh
           ssh-keyscan -H $DEPLOY_HOST >> ~/.ssh/known_hosts
           echo $SSH_KEY > ~/.ssh/id_rsa
+          echo $DEPLOY_HOST
           chmod 600 ~/.ssh/id_rsa
           ssh -i ~/.ssh/id_rsa ubuntu@$DEPLOY_HOST "mkdir -p /var/www/html/longtv_gitlab"
           
