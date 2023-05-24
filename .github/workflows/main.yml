@@ -36,7 +36,7 @@ jobs:
         run: |
           mkdir -p ~/.ssh
           ssh-keyscan -H ${{ env.DEPLOY_HOST }} >> ~/.ssh/known_hosts
-          echo ${{ secrects.SSH_KEY }} > ~/.ssh/id_rsa
+          echo ${{ env.SSH_KEY }} > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
           ssh ubuntu@${{ env.DEPLOY_HOST }} "mkdir -p /var/www/html/longtv_gitlab"
           scp -r build/* ubuntu@${{ env.DEPLOY_HOST }}:/var/www/html/longtv_gitlab 
