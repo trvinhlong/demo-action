@@ -33,11 +33,12 @@ jobs:
 
       # Runs a set of commands using the runners shell
       - name: Deploy code to server
+        id: build-deploy
         run: |
           mkdir -p ~/.ssh
-          ssh-keyscan -H ${{ env.DEPLOY_HOST }} >> ~/.ssh/known_hosts
-          echo ${{ env.SSH_KEY }} > ~/.ssh/id_rsa
+          ssh-keyscan -H $DEPLOY_HOST >> ~/.ssh/known_hosts
+          echo $SSH_KEY > ~/.ssh/id_rsa
           chmod 600 ~/.ssh/id_rsa
-          ssh ubuntu@${{ env.DEPLOY_HOST }} "mkdir -p /var/www/html/longtv_gitlab"
-          scp -r build/* ubuntu@${{ env.DEPLOY_HOST }}:/var/www/html/longtv_gitlab 
+          ssh ubuntu@$DEPLOY_HOST "mkdir -p /var/www/html/longtv_gitlab"
+          scp -r build/* ubuntu@$DEPLOY_HOST:/var/www/html/longtv_gitlab 
 
